@@ -10,7 +10,9 @@ import PaginaPedido from "../Pages/PaginaPedido/PaginaPedido";
 import PaginaDetalhesRestaurante from "../Pages/PaginaDetalhesRestaurante/PaginaDetalhesRestaurante";
 import GlobalState from "../Global/GlobalState";
 
+
 export const Router = () => {
+
 
   return (
     <GlobalState>
@@ -29,5 +31,6 @@ export const Router = () => {
       </BrowserRouter>
     </GlobalState>
   )
+
 
 }
