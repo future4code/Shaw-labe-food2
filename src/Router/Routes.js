@@ -9,7 +9,11 @@ import PaginaLogin from "../Pages/PaginaDeLogin/PaginaDeLogin";
 import PaginaPedido from "../Pages/PaginaPedido/PaginaPedido";
 import PaginaDetalhesRestaurante from "../Pages/PaginaDetalhesRestaurante/PaginaDetalhesRestaurante";
 import GlobalState from "../Global/GlobalState";
+
+
 export const Router = () => {
+
+
   return (
     <GlobalState>
       <BrowserRouter>
@@ -27,4 +31,6 @@ export const Router = () => {
       </BrowserRouter>
     </GlobalState>
   )
+
+
 }
