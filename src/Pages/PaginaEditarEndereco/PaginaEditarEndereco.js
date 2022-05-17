@@ -5,7 +5,7 @@ import axios from 'axios';
 import imagens from "../../imagens/logo-invert.png";
 
 const PaginaEditarEndereco = () => {
-  const {form, onChange, clear} = useForm({
+  const [form, onChange, clear] = useForm({
     street: "",
     number: "",
     neighbourhood: "",
