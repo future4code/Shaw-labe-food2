@@ -1,45 +1,57 @@
-import { Box, Button, Flex, Image, Input } from '@chakra-ui/react';
-import React from 'react'
-import useForm from '../../Hooks/useForm';
-import axios from 'axios';
+import { Box, Button, Flex, Image, Input } from "@chakra-ui/react";
+import React from "react";
+import useForm from "../../Hooks/useForm";
+import axios from "axios";
 import imagens from "../../imagens/logo-invert.png";
 
 const PaginaEditarEndereco = () => {
-  const {form, onChange, clear} = useForm({
+  const [form, onChange, clear] = useForm({
     street: "",
     number: "",
     neighbourhood: "",
     city: "",
-    state:"",
-    complement:""
+    state: "",
+    complement: "",
   });
-
 
   const cadastrarEndereco = (event) => {
     event.preventDefault();
-    const token = localStorage.getItem("token")
-    const headers = { headers: { auth: token } }
+    const token = localStorage.getItem("token");
+    const headers = { headers: { auth: token } };
     axios
-      .put("https://us-central1-missao-newton.cloudfunctions.net/futureEatsA/address", form, headers)
-      .then((res) => { 
-       clear()
-       localStorage.setItem("token", res.data.token);
-       alert("Endereço cadastrado com sucesso")
+      .put(
+        "https://us-central1-missao-newton.cloudfunctions.net/futureEatsA/address",
+        form,
+        headers
+      )
+      .then((res) => {
+        clear();
+        localStorage.setItem("token", res.data.token);
+        alert("Endereço cadastrado com sucesso");
       })
-      .catch((err) => { console.log(err.response) } )
-  }
+      .catch((err) => {
+        console.log(err.response);
+      });
+  };
 
   return (
-    <Flex  direction={"column"}
-    align={"center"}
-    justify={"center"}
-    padding={"0 0 36px"}
-    h={"100vh"}>
-    
-    <Box as="h1" fontSize={"20px"} fontWeight={"bold"} alignSelf={'center'} mb={"10px"}>
-         Meu Endereço
-         </Box>
-    <form onSubmit={cadastrarEndereco}>
+    <Flex
+      direction={"column"}
+      align={"center"}
+      justify={"center"}
+      padding={"0 0 36px"}
+      h={"100vh"}
+    >
+      <Box
+        as="h1"
+        fontSize={"20px"}
+        fontWeight={"bold"}
+        alignSelf={"center"}
+        mb={"10px"}
+      >
+        Meu Endereço
+      </Box>
+      <form onSubmit={cadastrarEndereco}>
         <Flex direction={"column"}>
           <Input
             backgroundColor={"white"}
@@ -68,7 +80,7 @@ const PaginaEditarEndereco = () => {
             value={form.number}
             onChange={onChange}
           />
-           <Input
+          <Input
             backgroundColor={"white"}
             borderRadius={"4px"}
             fontSize={"0.9em"}
@@ -76,12 +88,10 @@ const PaginaEditarEndereco = () => {
             mb={"10px"}
             required
             name={"neighbourhood"}
-            type= "text"
+            type="text"
             placeholder="Bairro"
             value={form.neighbourhood}
             onChange={onChange}
-           
-           
           />
 
           <Input
@@ -96,7 +106,6 @@ const PaginaEditarEndereco = () => {
             type="text"
             value={form.city}
             onChange={onChange}
-            
           />
           <Input
             backgroundColor={"white"}
@@ -108,11 +117,10 @@ const PaginaEditarEndereco = () => {
             name={"state"}
             placeholder="Estado"
             type="text"
-            value={form. state}
+            value={form.state}
             onChange={onChange}
-            w = {"360px"}
-            padding= {"0 16px 8px"}
-            
+            w={"360px"}
+            padding={"0 16px 8px"}
           />
           <Input
             backgroundColor={"white"}
@@ -126,17 +134,15 @@ const PaginaEditarEndereco = () => {
             value={form.complement}
             onChange={onChange}
             mt={"5px"}
-           
-            
           />
 
-    <Button fontFamily={"Roboto-Regular"}  bg="#5cb646" type="submit">Salvo</Button>
+          <Button fontFamily={"Roboto-Regular"} bg="#5cb646" type="submit">
+            Salvo
+          </Button>
+        </Flex>
+      </form>
     </Flex>
-    </form>
-    
-    </Flex>
-  
-)
-}
+  );
+};
 
-export default PaginaEditarEndereco
+export default PaginaEditarEndereco;
