@@ -22,7 +22,7 @@ export const irParaEditarCadastro = (navigate) => {
   navigate("/editarcadastro")
 }
 
-export const irParaEditarEndereço = (navigate) => {
+export const irParaEditarEndereco = (navigate) => {
   navigate("editarendereço")
 }
 
