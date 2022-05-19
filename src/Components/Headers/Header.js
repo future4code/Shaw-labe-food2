@@ -24,7 +24,7 @@ const Header = (props) => {
        
       />
 
-      <Heading  mt={"7px"} fontSize={"1.3em"}>{props.titulo}</Heading>
+      <Heading textAlign={"center"} mt={"7px"} fontSize={"1.3em"}>{props.titulo}</Heading>
     
     </SimpleGrid>
   );
