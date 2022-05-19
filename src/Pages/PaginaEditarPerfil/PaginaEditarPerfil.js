@@ -101,4 +101,4 @@ const PaginaEditarPerfil = () => {
   )
 }
 
-export default PaginaEditarPerfil
+export default PaginaEditarPerfil;
