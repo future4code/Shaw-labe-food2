@@ -3,7 +3,8 @@ import React, { useEffect, useContext } from 'react'
 import GlobalContext from '../../Global/GlobalContext'
 import { useParams } from 'react-router-dom'
 import CardProduto from '../../Components/CardProduto/CardProduto'
-import { Box, Flex } from '@chakra-ui/react'
+import { Box, Image, Flex } from '@chakra-ui/react'
+import Header from '../../Components/Headers/Header'
 
 const PaginaDetalhesRestaurante = () => {
 
@@ -16,6 +17,10 @@ const PaginaDetalhesRestaurante = () => {
   useEffect(() => { requests.pegarDetalhes(pathParams.id) }, [])
 
   return (
+    <>
+    <Header titulo="Restaurante"/>
+    
+      
     <Flex
       flexDirection='column'
       alignItens='center'
@@ -52,6 +57,7 @@ const PaginaDetalhesRestaurante = () => {
       </Flex>
 
     </Flex>
+    </>
   )
 }
 
