@@ -7,6 +7,7 @@ import imagens from "../../imagens/logo-invert.png";
 import { FormControl, FormLabel, FormErrorMessage } from "@chakra-ui/react";
 import { Field, Form, Formik } from "formik";
 import * as Yup from "yup";
+import Header from "../../Components/Headers/Header";
 
 const SignupSchema = Yup.object().shape({
   name: Yup.string().required("nome incorreto"),
@@ -45,159 +46,165 @@ const PaginaDeCadastro = () => {
   };
 
   return (
-    <Flex
-      direction={"column"}
-      align={"center"}
-      justify={"center"}
-      padding={"1em"}
-      h={"100vh"}
-    >
-      <Image mb={"50px"} src={imagens} />
-      <h1>Cadastrar</h1>
-      <Flex direction={"column"}>
-        <Formik
-          initialValues={{
-            name: "",
-            email: "",
-            cpf: "",
-            password: "",
-            confirmPwd: "",
-          }}
-          onSubmit={onClickCadastrar}
-          validationSchema={SignupSchema}
-        >
-          {(props) => (
-            <Form>
-              <Field name="name">
-                {({ field, form }) => (
-                  <FormControl
-                    isInvalid={form.errors.name && form.touched.name}
-                  >
-                    <FormLabel htmlFor="name">Nome</FormLabel>
-                    <Input
-                      {...field}
-                      id="name"
-                      placeholder="Nome"
-                      backgroundColor={"white"}
-                      borderRadius={"4px"}
-                      fontSize={"0.9em"}
-                      fontWeight={"400"}
-                      mb={"10px"}
-                    />
-                    <FormErrorMessage>{form.errors.name}</FormErrorMessage>
-                  </FormControl>
-                )}
-              </Field>
+    <>
+      <Header />
+      <Flex
+        direction={"column"}
+        align={"center"}
+        justify={"center"}
+        padding={"1em"}
+        h={"100vh"}
+      >
+        <Image mb={"50px"} src={imagens} />
+        <h1>Cadastrar</h1>
+        <Flex direction={"column"}>
+          <Formik
+            initialValues={{
+              name: "",
+              email: "",
+              cpf: "",
+              password: "",
+              confirmPwd: "",
+            }}
+            onSubmit={onClickCadastrar}
+            validationSchema={SignupSchema}
+          >
+            {(props) => (
+              <Form>
+                <Field name="name">
+                  {({ field, form }) => (
+                    <FormControl
+                      isInvalid={form.errors.name && form.touched.name}
+                    >
+                      <FormLabel htmlFor="name">Nome</FormLabel>
+                      <Input
+                        {...field}
+                        id="name"
+                        placeholder="Nome"
+                        backgroundColor={"white"}
+                        borderRadius={"4px"}
+                        fontSize={"0.9em"}
+                        fontWeight={"400"}
+                        mb={"10px"}
+                      />
+                      <FormErrorMessage>{form.errors.name}</FormErrorMessage>
+                    </FormControl>
+                  )}
+                </Field>
 
-              <Field name="email">
-                {({ field, form }) => (
-                  <FormControl
-                    isInvalid={form.errors.email && form.touched.email}
-                  >
-                    <FormLabel htmlFor="email">Email</FormLabel>
-                    <Input
-                      {...field}
-                      id="email"
-                      backgroundColor={"white"}
-                      borderRadius={"4px"}
-                      fontSize={"0.9em"}
-                      fontWeight={"400"}
-                      mb={"10px"}
-                      type="email"
-                      placeholder="Email"
-                    />
-                    <FormErrorMessage>{form.errors.email}</FormErrorMessage>
-                  </FormControl>
-                )}
-              </Field>
+                <Field name="email">
+                  {({ field, form }) => (
+                    <FormControl
+                      isInvalid={form.errors.email && form.touched.email}
+                    >
+                      <FormLabel htmlFor="email">Email</FormLabel>
+                      <Input
+                        {...field}
+                        id="email"
+                        backgroundColor={"white"}
+                        borderRadius={"4px"}
+                        fontSize={"0.9em"}
+                        fontWeight={"400"}
+                        mb={"10px"}
+                        type="email"
+                        placeholder="Email"
+                      />
+                      <FormErrorMessage>{form.errors.email}</FormErrorMessage>
+                    </FormControl>
+                  )}
+                </Field>
 
-              <Field name="cpf">
-                {({ field, form }) => (
-                  <FormControl isInvalid={form.errors.cpf && form.touched.cpf}>
-                    <FormLabel htmlFor="cpf">CPF</FormLabel>
-                    <Input
-                      {...field}
-                      id="cpf"
-                      backgroundColor={"white"}
-                      borderRadius={"4px"}
-                      fontSize={"0.9em"}
-                      fontWeight={"400"}
-                      mb={"10px"}
-                      placeholder="CPF"
-                    />
-                    <FormErrorMessage>{form.errors.cpf}</FormErrorMessage>
-                  </FormControl>
-                )}
-              </Field>
+                <Field name="cpf">
+                  {({ field, form }) => (
+                    <FormControl
+                      isInvalid={form.errors.cpf && form.touched.cpf}
+                    >
+                      <FormLabel htmlFor="cpf">CPF</FormLabel>
+                      <Input
+                        {...field}
+                        id="cpf"
+                        backgroundColor={"white"}
+                        borderRadius={"4px"}
+                        fontSize={"0.9em"}
+                        fontWeight={"400"}
+                        mb={"10px"}
+                        placeholder="CPF"
+                      />
+                      <FormErrorMessage>{form.errors.cpf}</FormErrorMessage>
+                    </FormControl>
+                  )}
+                </Field>
 
-              <Field name="password">
-                {({ field, form }) => (
-                  <FormControl
-                    isInvalid={form.errors.password && form.touched.password}
-                  >
-                    <FormLabel htmlFor="password">Senha</FormLabel>
-                    <Input
-                      {...field}
-                      id="password"
-                      backgroundColor={"white"}
-                      borderRadius={"4px"}
-                      fontSize={"0.9em"}
-                      fontWeight={"400"}
-                      mb={"10px"}
-                      placeholder="Senha"
-                      type="password"
-                      w={"360px"}
-                      padding={"0 16px 8px"}
-                    />
-                    <FormErrorMessage>{form.errors.password}</FormErrorMessage>
-                  </FormControl>
-                )}
-              </Field>
+                <Field name="password">
+                  {({ field, form }) => (
+                    <FormControl
+                      isInvalid={form.errors.password && form.touched.password}
+                    >
+                      <FormLabel htmlFor="password">Senha</FormLabel>
+                      <Input
+                        {...field}
+                        id="password"
+                        backgroundColor={"white"}
+                        borderRadius={"4px"}
+                        fontSize={"0.9em"}
+                        fontWeight={"400"}
+                        mb={"10px"}
+                        placeholder="Senha"
+                        type="password"
+                        w={"360px"}
+                        padding={"0 16px 8px"}
+                      />
+                      <FormErrorMessage>
+                        {form.errors.password}
+                      </FormErrorMessage>
+                    </FormControl>
+                  )}
+                </Field>
 
-              <Field name="confirmPwd">
-                {({ field, form }) => (
-                  <FormControl
-                    isInvalid={
-                      form.errors.confirmPwd && form.touched.confirmPwd
-                    }
-                  >
-                    <FormLabel htmlFor="confirmPwd">Confirme a Senha</FormLabel>
-                    <Input
-                      {...field}
-                      id="confirmPwd"
-                      backgroundColor={"white"}
-                      borderRadius={"4px"}
-                      fontSize={"0.9em"}
-                      fontWeight={"400"}
-                      mb={"10px"}
-                      // name={"password"}
-                      placeholder="Confirme a Senha"
-                      //value={form.password}
-                      //onChange={onChange}
-                      type="password"
-                    />
-                    <FormErrorMessage>
-                      {form.errors.confirmPwd}
-                    </FormErrorMessage>
-                  </FormControl>
-                )}
-              </Field>
+                <Field name="confirmPwd">
+                  {({ field, form }) => (
+                    <FormControl
+                      isInvalid={
+                        form.errors.confirmPwd && form.touched.confirmPwd
+                      }
+                    >
+                      <FormLabel htmlFor="confirmPwd">
+                        Confirme a Senha
+                      </FormLabel>
+                      <Input
+                        {...field}
+                        id="confirmPwd"
+                        backgroundColor={"white"}
+                        borderRadius={"4px"}
+                        fontSize={"0.9em"}
+                        fontWeight={"400"}
+                        mb={"10px"}
+                        placeholder="Confirme a Senha"
+                        type="password"
+                      />
+                      <FormErrorMessage>
+                        {form.errors.confirmPwd}
+                      </FormErrorMessage>
+                    </FormControl>
+                  )}
+                </Field>
 
-              <Button
-                w="full"
-                mt={4}
-                fontFamily={"Roboto-Regular"}
-                bg="#5cb646"
-                isLoading={props.isSubmitting}
-                type={"submit"}
-              >
-                Criar
-              </Button>
-            </Form>
-          )}
-        </Formik>
+                <Button
+                  w="full"
+                  mt={4}
+                  fontFamily={"Roboto-Regular"}
+                  bg="#5cb646"
+                  isLoading={props.isSubmitting}
+                  type={"submit"}
+                >
+                  Criar
+                </Button>
+              </Form>
+            )}
+          </Formik>
+        </Flex>
       </Flex>
-    </Flex>
+    </>
   );
 };
 

@@ -3,9 +3,13 @@ import React from "react";
 import useForm from "../../Hooks/useForm";
 import axios from "axios";
 import imagens from "../../imagens/logo-invert.png";
+import { useNavigate } from "react-router-dom";
+import { irParaLogin } from "../../Router/Coordinator";
+import Header from "../../Components/Headers/Header";
 
 
 const PaginaEditarEndereco = () => {
+  const navigate = useNavigate()
   const [form, onChange, clear] = useForm({
     street: "",
     number: "",
@@ -29,6 +33,7 @@ const PaginaEditarEndereco = () => {
         clear();
         localStorage.setItem("token", res.data.token);
         alert("Endereço cadastrado com sucesso");
+        irParaLogin(navigate)
       })
       .catch((err) => {
         console.log(err.response);
@@ -36,6 +41,8 @@ const PaginaEditarEndereco = () => {
   };
 
   return (
+    <>
+    <Header/>
     <Flex
       direction={"column"}
       align={"center"}
@@ -143,6 +150,7 @@ const PaginaEditarEndereco = () => {
         </Flex>
       </form>
     </Flex>
+    </>
   );
 };
 

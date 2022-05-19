@@ -22,8 +22,8 @@ export const irParaEditarCadastro = (navigate) => {
   navigate("/editarcadastro")
 }
 
-export const irParaEditarEndereço = (navigate) => {
-  navigate("editarendereço")
+export const irParaEditarEndereco = (navigate) => {
+  navigate("/editarendereco")
 }
 
 export const irParaEditarPerfil = (navigate) => {
@@ -31,6 +31,10 @@ export const irParaEditarPerfil = (navigate) => {
 }
 export const irPedido = (navigate) => {
   navigate("/pedido")
+}
+
+export const voltar =(navigate)=>{
+  navigate(-1)
 }
 
 

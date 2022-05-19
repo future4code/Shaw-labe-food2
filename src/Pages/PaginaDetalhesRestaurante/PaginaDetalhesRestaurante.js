@@ -4,6 +4,7 @@ import GlobalContext from '../../Global/GlobalContext'
 import { useParams } from 'react-router-dom'
 import CardProduto from '../../Components/CardProduto/CardProduto'
 import { Box, Image } from '@chakra-ui/react'
+import Header from '../../Components/Headers/Header'
 
 const PaginaDetalhesRestaurante = () => {
 
@@ -16,6 +17,8 @@ const PaginaDetalhesRestaurante = () => {
   useEffect(() => { requests.pegarDetalhes(pathParams.id) }, [])
 
   return (
+    <>
+    <Header titulo="Restaurante"/>
     <Box
       width='328px'
     >
@@ -35,6 +38,7 @@ const PaginaDetalhesRestaurante = () => {
       <CardProduto />
 
     </Box>
+    </>
   )
 }
 

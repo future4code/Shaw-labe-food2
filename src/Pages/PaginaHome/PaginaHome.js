@@ -1,27 +1,33 @@
-import React, { useEffect, useContext } from 'react'
+import React, { useEffect, useContext } from "react";
 
-import GlobalContext from '../../Global/GlobalContext'
-import CardRestaurante from '../../Components/CardRestaurante/CardRestaurante'
+import GlobalContext from "../../Global/GlobalContext";
+import CardRestaurante from "../../Components/CardRestaurante/CardRestaurante";
+import BarraNavegacao from "../../Components/BarraDeNavegacao/BarraNavegacao";
+import Header from "../../Components/Headers/Header";
 
 const Home = () => {
+  const { states, setters, requests } = useContext(GlobalContext);
 
-  const { states, setters, requests } = useContext(GlobalContext)
+  console.log(states);
 
-  console.log(states)
-
-  useEffect(() => { requests.pegarRestaurantes() }, [])
-
+  useEffect(() => {
+    requests.pegarRestaurantes();
+  }, []);
 
   return (
-    <div>
-      <input placeholder="Restaurante" alt="Restarante-foto" />
-      <div></div>
+    <>
+      <Header titulo="FutureEats"/>
       <div>
-        {/* <CardRestaurante onCLick={() => irParaDetalhesRestaurante(navigate, pathParams.id)} /> */}
-        <CardRestaurante />
+        <input placeholder="Restaurante" alt="Restarante-foto" />
+        <div></div>
+        <div>
+          {/* <CardRestaurante onCLick={() => irParaDetalhesRestaurante(navigate, pathParams.id)} /> */}
+          <CardRestaurante />
+          <BarraNavegacao />
+        </div>
       </div>
-    </div>
-  )
-}
+    </>
+  );
+};
 
 export default Home;
