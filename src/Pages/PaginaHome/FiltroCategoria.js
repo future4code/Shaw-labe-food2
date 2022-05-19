@@ -6,6 +6,7 @@ const FiltroCategoria = (props) => {
   return (
     <Tabs variant='line' colorScheme={'green'} padding='12px 0'>
       <TabList>
+        <Tab onClick={() => props.setCategoria("")}>Todos</Tab>
         <Tab onClick={() => props.setCategoria("Árabe")}>Árabe</Tab>
         <Tab onClick={() => props.setCategoria("Asiática")}>Asiática</Tab>
         <Tab onClick={() => props.setCategoria("Baiana")}>Baiana</Tab>

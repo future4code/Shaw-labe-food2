@@ -3,7 +3,7 @@ import React, { useEffect, useContext, useState } from 'react'
 import GlobalContext from '../../Global/GlobalContext'
 import CardRestaurante from '../../Components/CardRestaurante/CardRestaurante'
 import FiltroCategoria from './FiltroCategoria'
-import { Flex } from '@chakra-ui/react'
+import { Box, Flex } from '@chakra-ui/react'
 
 const Home = () => {
 
@@ -16,18 +16,22 @@ const Home = () => {
 
   return (
     <Flex
-      flexDirection='column'
-      alignItens='center'
+      direction='column'
+      align='center'
       width='100vw'
       padding='16px'
     >
       <input placeholder="Restaurante" alt="Restarante-foto" />
-      <FiltroCategoria
-        setCategoria={setCategoria}
-      />
+      <Box width='100%'>
+        <FiltroCategoria
+          setCategoria={setCategoria}
+        />
+      </Box>
       <Flex
-        flexDirection='column'
-        alignItens='center'
+        direction='column'
+        align='center'
+        width='100%'
+        maxW='328px'
         gap='8px'
       >
         <CardRestaurante
