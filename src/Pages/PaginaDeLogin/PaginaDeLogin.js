@@ -3,6 +3,7 @@ import axios from "axios";
 import { useNavigate } from "react-router-dom";
 import useForm from "../../Hooks/useForm";
 import { BASE_URL } from "../../Contants/Contants";
+import { irParaCadastro, irParaHome } from "../../Router/Coordinator";
 
 const PaginaDeLogin = () => {
     const navigate = useNavigate()
@@ -15,13 +16,14 @@ const PaginaDeLogin = () => {
             console.log(res);
               localStorage.setItem("token", res.data.token);
               if (res.data.user.hasAddress === true) {
-                  navigate.push("/")
+                  navigate("/")
               }else {
-                  navigate.push("/cadastro")
+                navigate("/cadastro")
               }
               clear();
           })
           .catch((err) => {
+              alert("Usuario não encontrado")
               console.log(err.res)
               clear();
           })
@@ -51,7 +53,10 @@ const PaginaDeLogin = () => {
                     onChange={onChange}
                     required
                 />   
-                <button type={"submit"} >Entrar</button>
+                <button type={"submit"}>Entrar</button>
+                <button onClick={() => irParaCadastro(navigate)}>Cadastre-se</button>
+                
+               
                
 
             </form>

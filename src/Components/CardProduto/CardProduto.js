@@ -1,26 +1,100 @@
+import { Box, Button, Flex, Modal, ModalBody, ModalCloseButton, ModalContent, ModalFooter, ModalHeader, ModalOverlay, Select, useDisclosure } from "@chakra-ui/react"
 import React, { useContext } from "react"
 
 import GlobalContext from "../../Global/GlobalContext"
-import { CardProdutoContainer } from "./styled"
 
 const CardProduto = () => {
 
   const { states } = useContext(GlobalContext)
 
-  return(
+  const { isOpen, onOpen, onClose } = useDisclosure()
+
+  return (
     <>
-    {states.detalhes.products && states.detalhes.products.map((produto) => {
-        return(
-          <CardProdutoContainer key={produto.id}>
-            {/* <img src={produto.photoUrl} /> */}
-            <div>
-              <h3>{produto.name}</h3>
-              <p>{produto.category}</p>
-              <p>{produto.description}</p>
-              <p>R$ {produto.price},00</p>
-              <button>Adicionar</button>
-            </div>
-          </CardProdutoContainer>
+      {states.detalhes.products && states.detalhes.products.map((produto) => {
+        return (
+          <Flex
+            border='1px solid #b8b8b8'
+            borderRadius='8px'
+            key={produto.id}
+          >
+            <Box
+              width='96px'
+              borderRadius='8px 0 0 8px'
+              backgroundSize={'cover'}
+              backgroundPosition='center'
+              backgroundImage={produto.photoUrl}
+            />
+
+            <Flex flexDirection='column' maxWidth='245px' flexGrow='1'>
+              <Flex justifyContent='flex-end' width='100%'>
+                <Flex
+                  justifyContent='center'
+                  alignItems='center'
+                  width='30px'
+                  height='30px'
+                  border='1px solid #5cb646'
+                  borderRadius='0 8px 0 8px'
+                  fontSize='12px'
+                  color='#5cb646'
+                >
+                  <span>2</span>
+                </Flex>
+              </Flex>
+
+              <Flex flexDirection='column' padding='0 16px' width='100%'>
+                <Box fontWeight='semibold' as='h3' color='#5CB646' marginBottom='8px'>{produto.name}</Box>
+                {/* <span>{produto.category}</span> */}
+                <Box fontSize='12px' color='#b8b8b8' height='30px' marginBottom='4px' as='span'>{produto.description}</Box>
+                <Box fontWeight='semibold' as='h3'>{produto.price.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</Box>
+              </Flex>
+
+              <Box display='flex' justifyContent='flex-end' width='100%'>
+                <Box
+                  as='button'
+                  width='90px'
+                  height='30px'
+                  border='1px solid #5cb646'
+                  borderRadius='8px 0 8px 0'
+                  fontSize='12px'
+                  color='#5cb646'
+                  onClick={onOpen}
+                >
+                  adicionar
+                </Box>
+
+                <Modal isOpen={isOpen} onClose={onClose} isCentered >
+                  <ModalOverlay />
+                  <ModalContent>
+                    <ModalHeader>Selecione a quantidade desejada</ModalHeader>
+                    <ModalCloseButton />
+                    <ModalBody>
+                      <Select>
+                        <option value='0'>0</option>
+                        <option value='1'>1</option>
+                        <option value='2'>2</option>
+                        <option value='3'>3</option>
+                        <option value='4'>4</option>
+                        <option value='5'>5</option>
+                        <option value='6'>6</option>
+                        <option value='7'>7</option>
+                        <option value='8'>8</option>
+                        <option value='9'>9</option>
+                        <option value='10'>10</option>
+                      </Select>
+                    </ModalBody>
+
+                    <ModalFooter>
+                      <Button color='#5cb646' variant='ghost' mr={3} onClick={onClose}>
+                        ADICIONAR AO CARRINHO
+                      </Button>
+                    </ModalFooter>
+                  </ModalContent>
+                </Modal>
+              </Box>
+
+            </Flex>
+          </Flex>
         )
       })
       }

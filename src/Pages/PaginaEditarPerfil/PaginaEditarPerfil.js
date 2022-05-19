@@ -1,10 +1,14 @@
 import React from 'react'
+
 import { Box, Button, Flex, Image, Input } from '@chakra-ui/react';
 import useForm from '../../Hooks/useForm';
 import axios from 'axios';
 import { BASE_URL } from '../../Contants/Contants';
 import { voltar } from '../../Router/Coordinator';
 import { useNavigate } from 'react-router-dom';
+import BarraNavegacao from '../../Components/BarraDeNavegacao/BarraNavegacao'
+import Header from '../../Components/Headers/Header'
+
 
 const PaginaEditarPerfil = () => {
 
@@ -42,6 +46,7 @@ const PaginaEditarPerfil = () => {
 
 
   return (
+
     <Flex  direction={"column"}
     align={"center"}
     justify={"center"}
@@ -98,6 +103,7 @@ const PaginaEditarPerfil = () => {
         </Flex>
       </form>
     </Flex>
+
   )
 }
 
