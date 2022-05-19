@@ -1,27 +1,41 @@
-import React, { useEffect, useContext } from 'react'
+import React, { useEffect, useContext, useState } from 'react'
 
 import GlobalContext from '../../Global/GlobalContext'
 import CardRestaurante from '../../Components/CardRestaurante/CardRestaurante'
+import FiltroCategoria from './FiltroCategoria'
+import { Flex } from '@chakra-ui/react'
 
 const Home = () => {
 
-  const { states, setters, requests } = useContext(GlobalContext)
+  const { requests } = useContext(GlobalContext)
 
-  console.log(states)
+  const [categoria, setCategoria] = useState("")
 
   useEffect(() => { requests.pegarRestaurantes() }, [])
 
 
   return (
-    <div>
+    <Flex
+      flexDirection='column'
+      alignItens='center'
+      width='100vw'
+      padding='16px'
+    >
       <input placeholder="Restaurante" alt="Restarante-foto" />
-      <div></div>
-      <div>
-        {/* <CardRestaurante onCLick={() => irParaDetalhesRestaurante(navigate, pathParams.id)} /> */}
-        <CardRestaurante />
-      </div>
-    </div>
+      <FiltroCategoria
+        setCategoria={setCategoria}
+      />
+      <Flex
+        flexDirection='column'
+        alignItens='center'
+        gap='8px'
+      >
+        <CardRestaurante
+        categoria={categoria}
+        />
+      </Flex>
+    </Flex>
   )
 }
 
-export default Home;
+export default Home
