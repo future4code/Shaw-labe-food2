@@ -34,7 +34,6 @@ const PaginaPedido = () => {
       setCarrinho(novoCarrinho)
     }else {
       const novoCarrinho = carrinho.filter((produto) => {
-        // debugger
         return produto.id !== item.id
       })
       setCarrinho(novoCarrinho)
