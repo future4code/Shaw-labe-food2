@@ -1,11 +1,18 @@
-import React, { useEffect, useContext, useState } from "react"
-import { Flex, VStack, HStack } from "@chakra-ui/react"
+import BarraNavegacao from "../../Components/BarraDeNavegacao/BarraNavegacao";
+import Header from "../../Components/Headers/Header";
+import React, { useEffect, useContext, useState } from "react";
+import GlobalContext from "../../Global/GlobalContext";
+import CardRestaurante from "../../Components/CardRestaurante/CardRestaurante";
+import FiltroCategoria from "./FiltroCategoria";
+import { Flex, VStack, HStack, SimpleGrid, Box } from "@chakra-ui/react";
+import styled from "styled-components";
 
-import BarraNavegacao from "../../Components/BarraDeNavegacao/BarraNavegacao"
-import Header from "../../Components/Headers/Header"
-import GlobalContext from "../../Global/GlobalContext"
-import CardRestaurante from "../../Components/CardRestaurante/CardRestaurante"
-import FiltroCategoria from "./FiltroCategoria"
+const StyledBox = styled(Box)`
+  width: 100%;
+  div .restaurant-card:last-child {
+    margin-bottom: 5em;
+  }
+`;
 
 const Home = () => {
   const { requests } = useContext(GlobalContext)
@@ -18,13 +25,19 @@ const Home = () => {
 
   return (
     <>
-      <Header titulo="FutureEats" />
-      <VStack w="full" h="100vh" spacing={10} p={5}>
+      <VStack w="full" spacing={3} p={5} h="80vh">
+        <Header titulo="FutureEats" />
+        {/* <CardRestaurante onCLick={() => irParaDetalhesRestaurante(navigate, pathParams.id)} /> */}
+
         <input placeholder="Restaurante" alt="Restarante-foto" />
 
         <HStack w="full">
           <FiltroCategoria setCategoria={setCategoria} />
         </HStack>
+
+        <StyledBox>
+          <CardRestaurante categoria={categoria} />
+        </StyledBox>
 
         <Flex
           direction='column'
@@ -33,13 +46,11 @@ const Home = () => {
           maxW='328px'
           gap='8px'
         >
-          <CardRestaurante
-          categoria={categoria}
-          />
         </Flex>
 
-        <BarraNavegacao />
+      
       </VStack>
+      <BarraNavegacao />
     </>
   )
 }
