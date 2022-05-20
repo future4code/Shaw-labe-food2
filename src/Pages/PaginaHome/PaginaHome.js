@@ -4,7 +4,15 @@ import React, { useEffect, useContext, useState } from "react";
 import GlobalContext from "../../Global/GlobalContext";
 import CardRestaurante from "../../Components/CardRestaurante/CardRestaurante";
 import FiltroCategoria from "./FiltroCategoria";
-import { Flex, VStack, HStack, SimpleGrid } from "@chakra-ui/react";
+import { Flex, VStack, HStack, SimpleGrid, Box } from "@chakra-ui/react";
+import styled from "styled-components";
+
+const StyledBox = styled(Box)`
+  width: 100%;
+  div .restaurant-card:last-child {
+    margin-bottom: 5em;
+  }
+`;
 
 const Home = () => {
   const { states, setters, requests } = useContext(GlobalContext);
@@ -17,8 +25,8 @@ const Home = () => {
 
   return (
     <>
-      <Header titulo="FutureEats" />
-      <VStack w="full" h="100vh" spacing={10} p={5}>
+      <VStack w="full" spacing={3} p={5} h="80vh">
+        <Header titulo="FutureEats" />
         {/* <CardRestaurante onCLick={() => irParaDetalhesRestaurante(navigate, pathParams.id)} /> */}
 
         <input placeholder="Restaurante" alt="Restarante-foto" />
@@ -27,9 +35,11 @@ const Home = () => {
           <FiltroCategoria setCategoria={setCategoria} />
         </HStack>
 
-        <CardRestaurante categoria={categoria} />
-        <BarraNavegacao />
+        <StyledBox>
+          <CardRestaurante categoria={categoria} />
+        </StyledBox>
       </VStack>
+      <BarraNavegacao />
     </>
   );
 };
