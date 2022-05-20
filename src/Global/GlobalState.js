@@ -6,6 +6,7 @@ const GlobalState = (props) => {
 
   const [restaurantes, setRestaurantes] = useState([])
   const [detalhes, setDetalhes] = useState({})
+  const [carrinho, setCarrinho] = useState([])
 
 
   const pegarRestaurantes = () => {
@@ -33,8 +34,8 @@ const GlobalState = (props) => {
   }
 
 
-  const states = {restaurantes, detalhes}
-  const setters = {setRestaurantes, setDetalhes}
+  const states = {restaurantes, detalhes, carrinho}
+  const setters = {setRestaurantes, setDetalhes, setCarrinho}
   const requests = {pegarRestaurantes, pegarDetalhes}
 
   

@@ -1,13 +1,39 @@
 import { Box, Button, Flex, Modal, ModalBody, ModalCloseButton, ModalContent, ModalFooter, ModalHeader, ModalOverlay, Select, useDisclosure } from "@chakra-ui/react"
-import React, { useContext } from "react"
+import React, { useContext, useState } from "react"
 
 import GlobalContext from "../../Global/GlobalContext"
 
 const CardProduto = (props) => {
 
-  const { states } = useContext(GlobalContext)
+  const { states, setters } = useContext(GlobalContext)
+  const { carrinho } = states
+  const { setCarrinho } = setters
+
+  const [valor, setValor] = useState("")
 
   const { isOpen, onOpen, onClose } = useDisclosure()
+
+  const onClickAdicionarParaCarrinho = (produto) => {
+    const novoCarrinho = [...carrinho]
+    let temNoCarrinho = false
+    
+    for(let item of novoCarrinho){
+      if(item.id === produto.id){
+        item.quantity += valor
+        temNoCarrinho = true
+      }
+    }
+    if(temNoCarrinho === false){
+      novoCarrinho.push({...produto, quantity: valor})
+    }
+    setCarrinho(novoCarrinho)
+    onClose()
+  }
+
+  const onChangeValor = (event) => {
+    setValor(parseInt(event.target.value))
+    
+  }
 
   return (
     <>
@@ -46,7 +72,7 @@ const CardProduto = (props) => {
                   left='1px'
                   bottom='1px'
                 >
-                  <span>2</span>
+                  <span></span>
                 </Flex>
               </Flex>
 
@@ -85,7 +111,7 @@ const CardProduto = (props) => {
                     <ModalHeader>Selecione a quantidade desejada</ModalHeader>
                     <ModalCloseButton />
                     <ModalBody>
-                      <Select>
+                      <Select value={valor} onChange={onChangeValor}>
                         <option value='0'>0</option>
                         <option value='1'>1</option>
                         <option value='2'>2</option>
@@ -101,7 +127,7 @@ const CardProduto = (props) => {
                     </ModalBody>
 
                     <ModalFooter>
-                      <Button color='#5cb646' variant='ghost' mr={3} onClick={onClose}>
+                      <Button color='#5cb646' variant='ghost' mr={3} onClick={() => onClickAdicionarParaCarrinho(produto)}>
                         ADICIONAR AO CARRINHO
                       </Button>
                     </ModalFooter>
