@@ -30,12 +30,15 @@ export const irParaEditarPerfil = (navigate) => {
   navigate("/editarperfil");
 };
 export const irPedido = (navigate) => {
-  navigate("/pedido");
-};
+  navigate("/pedido")
+}
 
-export const voltar = (navigate) => {
-  navigate(-1);
-};
+export const voltar =(navigate)=>{
+  navigate(-1)
+}
+
+
 export const irPerfil = (navigate) => {
   navigate("/perfil");
 };
+

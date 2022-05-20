@@ -12,6 +12,7 @@ import PaginaPerfil from "../Pages/PaginaPerfil/PaginaPerfil";
 import GlobalState from "../Global/GlobalState";
 import PaginaInicial from "../Pages/PaginaInicial";
 
+
 export const Router = () => {
   return (
     <GlobalState>
@@ -27,10 +28,8 @@ export const Router = () => {
           <Route path="/editarendereco" element={<PaginaEditarEndereco />} />
           <Route path="/editarperfil" element={<PaginaEditarPerfil />} />
           <Route path="/pedido" element={<PaginaPedido />} />
-          <Route
-            path="/restaurante/:id"
-            element={<PaginaDetalhesRestaurante />}
-          />
+          <Route path="/restaurante/:id" element={<PaginaDetalhesRestaurante />} />            
+
         </Routes>
       </BrowserRouter>
     </GlobalState>
