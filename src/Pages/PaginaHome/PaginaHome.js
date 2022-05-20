@@ -15,13 +15,13 @@ const StyledBox = styled(Box)`
 `;
 
 const Home = () => {
-  const { states, setters, requests } = useContext(GlobalContext);
+  const { requests } = useContext(GlobalContext)
 
-  const [categoria, setCategoria] = useState("");
+  const [categoria, setCategoria] = useState("")
 
   useEffect(() => {
-    requests.pegarRestaurantes();
-  }, []);
+    requests.pegarRestaurantes()
+  }, [])
 
   return (
     <>
@@ -38,10 +38,21 @@ const Home = () => {
         <StyledBox>
           <CardRestaurante categoria={categoria} />
         </StyledBox>
+
+        <Flex
+          direction='column'
+          align='center'
+          width='100%'
+          maxW='328px'
+          gap='8px'
+        >
+        </Flex>
+
+      
       </VStack>
       <BarraNavegacao />
     </>
-  );
-};
+  )
+}
 
-export default Home;
+export default Home

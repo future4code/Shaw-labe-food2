@@ -11,7 +11,7 @@ export const irParaCadastro = (navigate) => {
 };
 
 export const irParaDetalhesRestaurante = (navigate, id) => {
-  navigate(`restaurante/${id}`);
+  navigate(`/restaurante/${id}`);
 };
 
 export const irParaBusca = (navigate) => {
