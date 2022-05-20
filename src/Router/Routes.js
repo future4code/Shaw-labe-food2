@@ -10,16 +10,16 @@ import PaginaPedido from "../Pages/PaginaPedido/PaginaPedido";
 import PaginaDetalhesRestaurante from "../Pages/PaginaDetalhesRestaurante/PaginaDetalhesRestaurante";
 import PaginaPerfil from "../Pages/PaginaPerfil/PaginaPerfil";
 import GlobalState from "../Global/GlobalState";
+import PaginaInicial from "../Pages/PaginaInicial";
 
 
 export const Router = () => {
-
-
   return (
     <GlobalState>
       <BrowserRouter>
         <Routes>
-          <Route index element={<PaginaHome />} />
+          <Route index element={<PaginaInicial />} />
+          <Route path="/feed" element={<PaginaHome />} />
           <Route path="/cadastro" element={<PaginaDeCadastro />} />
           <Route path="/login" element={<PaginaLogin />} />
           <Route path="/busca" element={<PaginaBuscarRestaurante />} />
@@ -28,11 +28,10 @@ export const Router = () => {
           <Route path="/editarendereco" element={<PaginaEditarEndereco />} />
           <Route path="/editarperfil" element={<PaginaEditarPerfil />} />
           <Route path="/pedido" element={<PaginaPedido />} />
-          <Route path="/restaurante/:id" element={<PaginaDetalhesRestaurante />} />
+          <Route path="/restaurante/:id" element={<PaginaDetalhesRestaurante />} />            
+
         </Routes>
       </BrowserRouter>
     </GlobalState>
-  )
-
-
-}
+  );
+};

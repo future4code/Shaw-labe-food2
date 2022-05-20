@@ -46,6 +46,8 @@ const PaginaEditarPerfil = () => {
 
 
   return (
+    <>
+    <Header titulo = "Editar"/>
 
     <Flex  direction={"column"}
     align={"center"}
@@ -53,12 +55,10 @@ const PaginaEditarPerfil = () => {
     padding={"0 0 36px"}
     h={"100vh"}>
     
-      <Box as="h1" fontSize={"20px"} fontWeight={"bold"} alignSelf={'center'} mb={"10px"}>
-          Editar Perfil
-      </Box>
+     
       
       <form onSubmit={onClickEditarPerfil}>
-        <Flex direction={"column"}>
+        <Flex mb={"90%"} direction={"column"}>
           <Input
             backgroundColor={"white"}
             borderRadius={"4px"}
@@ -96,13 +96,16 @@ const PaginaEditarPerfil = () => {
             value={form.cpf}
             onChange={onChange}
             required
+            w={"360px"}
+            padding={"0 16px 8px"}
           />
           
-          <Button fontFamily={"Roboto-Regular"}  bg="#5cb646" type="submit">Salvo</Button>
-          <Button fontFamily={"Roboto-Regular"} bg="#5cb646" onClick={onClickVoltar}>Voltar</Button>
+          <Button mt="20px" fontFamily={"Roboto-Regular"}  bg="#5cb646" type={"submit"}>Salvar</Button>
+          
         </Flex>
       </form>
     </Flex>
+    </>
 
   )
 }
