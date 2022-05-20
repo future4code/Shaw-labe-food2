@@ -4,9 +4,13 @@ import React, { useEffect, useContext, useState } from "react";
 import GlobalContext from "../../Global/GlobalContext";
 import CardRestaurante from "../../Components/CardRestaurante/CardRestaurante";
 import FiltroCategoria from "./FiltroCategoria";
-import { Flex, VStack, HStack, SimpleGrid } from "@chakra-ui/react";
+import { Flex, VStack, HStack, SimpleGrid, Button, Input } from "@chakra-ui/react";
+import { irParaBusca, irParaCadastro } from "../../Router/Coordinator";
+import { useNavigate } from "react-router-dom";
 
 const Home = () => {
+  const navigate = useNavigate()
+  
   const { states, setters, requests } = useContext(GlobalContext);
 
   const [categoria, setCategoria] = useState("");
@@ -21,7 +25,15 @@ const Home = () => {
       <VStack w="full" h="100vh" spacing={10} p={5}>
         {/* <CardRestaurante onCLick={() => irParaDetalhesRestaurante(navigate, pathParams.id)} /> */}
 
-        <input placeholder="Restaurante" alt="Restarante-foto" />
+        
+        <Input 
+         backgroundColor={"white"}
+         size='md'
+          mb={"5px"} 
+          w="full"
+          placeholder="Buscar por Restaurante" 
+          alt="Restarante-foto" 
+          onClick={() => irParaBusca(navigate)} />          
 
         <HStack w="full">
           <FiltroCategoria setCategoria={setCategoria} />

@@ -38,5 +38,7 @@ export const voltar =(navigate)=>{
 }
 
 
-
+export const irCarregamento = (navigate) => {
+  navigate("/carregamento")
+}
 
