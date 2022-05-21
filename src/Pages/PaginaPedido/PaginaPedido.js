@@ -5,7 +5,11 @@ import Header from "../../Components/Headers/Header";
 import GlobalContext from "../../Global/GlobalContext";
 import {
   Box,
+  Text,
+  Radio,
+  RadioGroup,
   Button,
+  Stack,
   Flex,
   Modal,
   ModalBody,
@@ -16,6 +20,7 @@ import {
   ModalOverlay,
   Select,
   useDisclosure,
+  Divider,
 } from "@chakra-ui/react";
 import axios from "axios";
 import { BASE_URL } from "../../Contants/Contants";
@@ -186,64 +191,99 @@ const PaginaPedido = () => {
 
   if (itemCarrinho.length === 0) {
     return(
-      <div>
-        
-        <div>
-          <p>Endereço de entrega: {perfil.address}</p>
-        </div>
+      <>
+        <Header titulo="Carrinho" />
+        <Flex fontSize="16px" fontFamily={"Roboto-Regular"}  direction="column" bg="#eeeeee">
+          <Flex justify={"space-between"}>
+            <Box display={"flex"} flexDirection={"column"}>
+              <Box  m={"5px"} color="gray" as="p">
+              Endereço de entrega: <br></br>
+              <b>{perfil.address}</b>
+              </Box>
+            </Box>
+          </Flex>
+        </Flex>
 
-        <div>
-          <p>Carrinho Vazio</p>
-        </div>
+        <Flex direction={"column"} align={"center"}>
+          <Box mb={"35px"} mt={"10px"}>
+            Carrinho Vazio
+          </Box>
 
-        <div>
-          <p>Valor Total R$ {valorSubTotal},00</p>
-          <p>Valor Frete R$ 0,0</p>
-        </div>
+          <Flex justify={"space-between"} padding={"0 50px"}>
+          <Box display={"flex"} mr={"18px"}>
+            <Text>Valor Total R$ {valorSubTotal},00</Text>
+          </Box>
 
-        <div>
-          <p>Formas de Pagamento</p>
-        </div>
+          <Box>
+          <Text>Valor Frete R$ 0,0</Text>
+          </Box>
+          </Flex>
+        </Flex>
+
+        <Stack mt={"50px"}>
+          <RadioGroup m={"10px"}>
+            Formas de Pagamento<br></br>
+            <Divider borderBottomColor={"black"}></Divider>
+            <Box m={"10px"}>
+            <Radio mt={"50px"} isDisabled>Dinheiro</Radio><br></br>
+            <Radio mt={"50px"} isDisabled>Cartão de Crédito</Radio>
+            </Box>
+          </RadioGroup>
+        </Stack>
         <BarraNavegacao />
-      </div>
+      </>
     );
   }
 
   return (
-    <div>
+    <>
       <Header titulo="Carrinho" />
-      <div>
-        <p>Endereço de Entrega: {perfil.address}</p>
-      </div>
+      <Flex fontSize="16px" fontFamily={"Roboto-Regular"}  direction="column" bg="#eeeeee">
+          <Flex justify={"space-between"}>
+            <Box display={"flex"} flexDirection={"column"}>
+              <Box  m={"5px"} color="gray" as="p">
+              Endereço de entrega: <br></br>
+              <b>{perfil.address}</b>
+              </Box>
+            </Box>
+          </Flex>
+        </Flex>
 
-      <div>
-        <h2>{detalhes.name}</h2>
-        <h3>{detalhes.address}</h3>
-        <h3>{detalhes.deliveryTime}</h3>
-      </div>
+      <Box m={"12px"}>
+        <Text fontSize={"20px"} color={"#5cb646"}>{detalhes.name}</Text>
+        <Text fontSize={"16px"} color={"GrayText"}>{detalhes.address}</Text>
+        <Text fontSize={"16px"} color={"GrayText"}>{detalhes.deliveryTime}</Text>
+      </Box>
       
       <div>
         {itemCarrinho}
       </div>
 
-      <div>
-        <p>Valor Subtotal = R$ {valorSubTotal}</p>
-        <p>Valor do Frete = R$ {valorFrete}</p>
-        <p>Valor Total = R$ {valorTotal}</p>
-      </div>
+      <Flex direction={"column"} m={"20px"}>
+          <Flex>
+          <Box display={"column"}>
+            <Text m={"5px"}>Valor Subtotal = R$ {valorSubTotal},00</Text>
+            <Text m={"5px"}>Valor do Frete = R$ {valorFrete}</Text>
+            <Text m={"5px"} color={"#5cb646"}><b>Valor Total = R$ {valorTotal}</b></Text>
+          </Box>
+          </Flex>
+        </Flex>
 
-      <div>
-        <p>Formas de Pagamento</p>
-        <form>
-          <input onChange={onChangeMetodoDePagamento} type="radio" id="money" value="money" checked={pagamento === "money"}/>
-          <label for="money">Dinheiro</label>
-          <input onChange={onChangeMetodoDePagamento} type="radio" id="creditcard" value="creditcard" checked={pagamento === "creditcard"}/>
-          <label for="creditcard">Cartão de Crédito</label>
-        </form>
-        <button onClick={onClickConfirmarPedido}>Confirmar</button>
-      </div>
-      <BarraNavegacao />
-    </div>
+      <Stack direction={"column"}>
+        <Text m={"10px"}>Formas de Pagamento</Text>
+        <Divider borderBottomColor={"black"}></Divider>
+        <RadioGroup>
+          <Box m={"10px"} padding={"6px"}>
+            <input onChange={onChangeMetodoDePagamento} type="radio" id="money" value="money" checked={pagamento === "money"}/>
+            <label for="money">Dinheiro</label><br></br>
+            <input onChange={onChangeMetodoDePagamento} type="radio" id="creditcard" value="creditcard" checked={pagamento === "creditcard"}/>
+            <label for="creditcard">Cartão de Crédito</label>
+          </Box>
+        </RadioGroup>
+        <Button mt="20px" fontFamily={"Roboto-Regular"}  bg="#5cb646" onClick={onClickConfirmarPedido}>Confirmar</Button>
+      </Stack>
+      {/* <BarraNavegacao /> */}
+    </>
   );
 };
 

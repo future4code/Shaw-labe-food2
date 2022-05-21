@@ -26,8 +26,7 @@ export const Router = () => {
           <Route path="/editarendereco" element={<PaginaEditarEndereco />} />
           <Route path="/editarperfil" element={<PaginaEditarPerfil />} />
           <Route path="/pedido" element={<PaginaPedido />} />
-          <Route path="/restaurante/:id" element={<PaginaDetalhesRestaurante />} />            
-
+          <Route path="/restaurante/:id" element={<PaginaDetalhesRestaurante />} />
         </Routes>
       </BrowserRouter>
   )
