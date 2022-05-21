@@ -11,8 +11,6 @@ const CardProduto = (props) => {
   const [selectedProduct, setSelectedProduct] = useState({});
   const [valor, setValor] = useState("1")
 
-  // console.log(selectedProduct)
-
   const { isOpen, onOpen, onClose } = useDisclosure()
 
   const onClickAdicionarParaCarrinho = (produto) => {
@@ -54,7 +52,7 @@ const CardProduto = (props) => {
       .map((item) => { idProdutos.push(item.id) })
   }
   pegaId()
-  console.log(idProdutos)
+  // console.log(idProdutos)
 
   const onChangeValor = (event) => {
     setValor(parseInt(event.target.value))

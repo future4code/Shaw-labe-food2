@@ -23,8 +23,6 @@ const Home = () => {
     <>
       <VStack w="full" spacing={3} p={5} h="80vh">
         <Header titulo="FutureEats" />
-        {/* <CardRestaurante onCLick={() => irParaDetalhesRestaurante(navigate, pathParams.id)} /> */}
-
         
         <Input 
          backgroundColor={"white"}
@@ -39,9 +37,9 @@ const Home = () => {
           <FiltroCategoria setCategoria={setCategoria} />
         </HStack>
 
-        <StyledBox>
+        {/* <StyledBox> */}
           <CardRestaurante categoria={categoria} />
-        </StyledBox>
+        {/* </StyledBox> */}
 
         <Flex
           direction='column'
