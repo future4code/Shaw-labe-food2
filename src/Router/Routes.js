@@ -9,6 +9,7 @@ import PaginaLogin from "../Pages/PaginaDeLogin/PaginaDeLogin";
 import PaginaPedido from "../Pages/PaginaPedido/PaginaPedido";
 import PaginaDetalhesRestaurante from "../Pages/PaginaDetalhesRestaurante/PaginaDetalhesRestaurante";
 import PaginaPerfil from "../Pages/PaginaPerfil/PaginaPerfil";
+import PaginaInicial from "../Pages/PaginaInicial"
 
 
 export const Router = () => {
