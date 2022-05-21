@@ -7,30 +7,29 @@ import {
   irParaLogin,
 } from "../../Router/Coordinator";
 import { useNavigate } from "react-router-dom";
-import GlobalContext from "../../Global/GlobalContext";
 import Header from "../../Components/Headers/Header";
-import {
-  Box,
-  Button,
-  Divider,
-  Flex,
-  HStack,
-  Image,
-  Text,
-} from "@chakra-ui/react";
-// import editar from "../../imagens/edit.png";
+import { Box, Button, Divider, Flex, HStack, Image, Text } from "@chakra-ui/react";
+import editar from "../../imagens/edit.png";
 import BarraNavegacao from "../../Components/BarraDeNavegacao/BarraNavegacao";
-
 const PaginaPerfil = () => {
-  const { states, setters } = useContext(GlobalContext);
-  const { perfil, pedidos } = states;
-  const { setPerfil, setPedidos } = setters;
+  const [perfil, setPerfil] = useState({
+    id: "",
+    name: "",
+    email: "",
+    cpf: "",
+    hasAdress: true,
+    address: "",
+  });
+  const [pedidos, setPedidos] = useState([]);
 
   const navigate = useNavigate();
-  const logout = () => {
-    localStorage.removeItem("token");
-    irParaLogin(navigate);
-  };
+
+
+  const logout =()=>{
+    localStorage.removeItem("token")
+    irParaLogin(navigate)
+  }
+
   useEffect(() => {
     buscarInformacoes();
     buscarHistoricoDePedidos();
@@ -67,17 +66,20 @@ const PaginaPerfil = () => {
         console.log(error);
       });
   };
+
   const onClickIrParaEditarPerfil = () => {
     irParaEditarPerfil(navigate);
   };
+
   const onClickIrParaEditarEndereco = () => {
     irParaEditarEndereco(navigate);
   };
+
   const listaDePedido = pedidos.map((pedido) => {
     return (
       <Flex>
         <Box
-          border="1px solid #B8B8B8"
+          border="1px solid #b8b8b8"
           borderRadius="8px"
           key={pedido.totalPrice}
         >
@@ -88,51 +90,50 @@ const PaginaPerfil = () => {
       </Flex>
     );
   });
+
   return (
     <>
       <Header titulo="Meu Perfil" />
+      
       <Flex fontSize="16px" direction={"column"}>
-        <Button bg="#EEEEEE" onClick={logout}>
-          Sair
-        </Button>
+      < Button bg="#eeeeee" onClick={logout}>Sair</Button>
         <Flex justify={"space-between"}>
+
           <Box m={"10px"} display={"flex"} flexDirection={"column"}>
             <Text>{perfil.name}</Text>
             <Text>{perfil.email}</Text>
             <Text>{perfil.cpf}</Text>
           </Box>
           <Box>
-            {/* <Image src={editar} onClick={onClickIrParaEditarPerfil} /> */}
+            <Image src={editar} onClick={onClickIrParaEditarPerfil} />
           </Box>
         </Flex>
-        <Flex
-          fontSize="16px"
-          fontFamily={"Roboto-Regular"}
-          direction="column"
-          bg="#EEEEEE"
-        >
+
+        <Flex fontSize="16px" fontFamily={"Roboto-Regular"}  direction="column" bg="#eeeeee">
           <Flex justify={"space-between"}>
             <Box display={"flex"} flexDirection={"column"}>
-              <Box m={"5px"} color="gray" as="p">
+              <Box  m={"5px"} color="gray" as="p">
                 Endereço cadastrado
               </Box>
               <Text m="5px"> {perfil.address}</Text>
             </Box>
             <Box>
-              {/* <Image src={editar} onClick={onClickIrParaEditarEndereco} /> */}
+              <Image src={editar} onClick={onClickIrParaEditarEndereco} />
             </Box>
           </Flex>
         </Flex>
+
         <div>
-          <Box fontSize={"16px"} m="10px" as="p">
-            Historico de compras:
+          <Box fontSize={"16px"} m="10px"as ="p">Historico de compras:
           </Box>
-          <Divider borderBottomColor={"gray"} orientation="horizontal" />
+          <Divider  borderBottomColor={"gray"} orientation='horizontal' />
           {listaDePedido}
         </div>
+       
       </Flex>
-      <BarraNavegacao />
+      <BarraNavegacao/>
     </>
   );
-};
+}
+
 export default PaginaPerfil;

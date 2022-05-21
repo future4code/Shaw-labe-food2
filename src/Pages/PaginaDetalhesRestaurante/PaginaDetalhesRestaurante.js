@@ -5,6 +5,7 @@ import { useParams } from 'react-router-dom'
 import CardProduto from '../../Components/CardProduto/CardProduto'
 import { Box, Image, Flex } from '@chakra-ui/react'
 import Header from '../../Components/Headers/Header'
+import BarraNavegacao from '../../Components/BarraDeNavegacao/BarraNavegacao'
 
 const PaginaDetalhesRestaurante = () => {
 
@@ -26,11 +27,10 @@ const PaginaDetalhesRestaurante = () => {
 
   // console.log(categoriasSemRepetir)
 
-  // console.log(states.detalhes)
-
+  
   useEffect(() => {
     requests.pegarDetalhes(pathParams.id)
-  }, [])
+  }, [states.carrinho])
 
   return (
     <>
@@ -91,6 +91,7 @@ const PaginaDetalhesRestaurante = () => {
       </Flex>
 
     </Flex>
+    <BarraNavegacao />
     </>
   )
 }

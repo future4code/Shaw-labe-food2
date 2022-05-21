@@ -1,14 +1,17 @@
-import React, { useEffect, useContext, useState } from "react"
-import { Flex, VStack, HStack } from "@chakra-ui/react"
-
-import BarraNavegacao from "../../Components/BarraDeNavegacao/BarraNavegacao"
-import Header from "../../Components/Headers/Header"
-import GlobalContext from "../../Global/GlobalContext"
-import CardRestaurante from "../../Components/CardRestaurante/CardRestaurante"
-import FiltroCategoria from "./FiltroCategoria"
+import BarraNavegacao from "../../Components/BarraDeNavegacao/BarraNavegacao";
+import Header from "../../Components/Headers/Header";
+import React, { useEffect, useContext, useState } from "react";
+import GlobalContext from "../../Global/GlobalContext";
+import CardRestaurante from "../../Components/CardRestaurante/CardRestaurante";
+import FiltroCategoria from "./FiltroCategoria";
+import { Flex, VStack, HStack, SimpleGrid, Button, Input } from "@chakra-ui/react";
+import { irParaBusca, irParaCadastro } from "../../Router/Coordinator";
+import { useNavigate } from "react-router-dom";
 
 const Home = () => {
-  const { requests } = useContext(GlobalContext)
+  const navigate = useNavigate()
+  
+  const { states, setters, requests } = useContext(GlobalContext);
 
   const [categoria, setCategoria] = useState("")
 
@@ -18,13 +21,25 @@ const Home = () => {
 
   return (
     <>
-      <Header titulo="FutureEats" />
-      <VStack w="full" h="100vh" spacing={10} p={5}>
-        <input placeholder="Restaurante" alt="Restarante-foto" />
+      <VStack w="full" spacing={3} p={5} h="80vh">
+        <Header titulo="FutureEats" />
+        
+        <Input 
+         backgroundColor={"white"}
+         size='md'
+          mb={"5px"} 
+          w="full"
+          placeholder="Buscar por Restaurante" 
+          alt="Restarante-foto" 
+          onClick={() => irParaBusca(navigate)} />          
 
         <HStack w="full">
           <FiltroCategoria setCategoria={setCategoria} />
         </HStack>
+
+        {/* <StyledBox> */}
+          <CardRestaurante categoria={categoria} />
+        {/* </StyledBox> */}
 
         <Flex
           direction='column'
@@ -33,13 +48,11 @@ const Home = () => {
           maxW='328px'
           gap='8px'
         >
-          <CardRestaurante
-          categoria={categoria}
-          />
         </Flex>
 
-        <BarraNavegacao />
+      
       </VStack>
+      <BarraNavegacao />
     </>
   )
 }

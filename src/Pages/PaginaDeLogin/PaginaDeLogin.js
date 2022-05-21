@@ -8,10 +8,12 @@ import { Input } from "@chakra-ui/react";
 import Header from "../../Components/Headers/Header";
 import imagens from "../../imagens/logo-invert.png";
 import { Button, Flex, Image, Box } from "@chakra-ui/react";
+import { useToast } from '@chakra-ui/react'
 
 
 const PaginaDeLogin = () => {
   const navigate = useNavigate()
+  const toast = useToast()
   const [form, onChange, clear] = useForm({ email: "", password: "" });
 
   const login = () => {
@@ -41,11 +43,11 @@ const PaginaDeLogin = () => {
 
 
 
-
   return (
     <div>
 
-           <Flex
+
+      <Flex
         direction={"column"}
         align={"center"}
         justify={"center"}

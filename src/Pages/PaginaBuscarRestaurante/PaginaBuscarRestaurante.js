@@ -1,15 +1,16 @@
 import React, { useState, useEffect, useContext } from 'react'
 import GlobalContext from '../../Global/GlobalContext'
 import axios from "axios";
-import { useNavigate } from "react-router-dom";
+import { useNavigate,useParams } from "react-router-dom";
 import { BASE_URL } from "../../Contants/Contants";
 import { irParaDetalhesRestaurante} from "../../Router/Coordinator"
 import { CardProdutoContainer } from "./styled"
-import { Box, Image } from "@chakra-ui/react"
+import { Box, Button, Image } from "@chakra-ui/react"
 import { Input } from '@chakra-ui/react'
 import Header from "../../Components/Headers/Header";
 
 const PaginaBuscarRestaurante = () => {
+
   const navigate = useNavigate()
   const [restaurantes, setRestaurantes] = useState([])
   const [buscaRestaurante, setBuscaRestaurante] = useState("")
@@ -61,7 +62,8 @@ const PaginaBuscarRestaurante = () => {
             height='120px'
             
           />
-          <Box padding='16px'>
+          <Box padding='16px'
+           >
             <Box fontWeight='semibold' as='h3' color='#5CB646'>{restaurante.name}</Box>
             <Box display='flex' justifyContent='space-between' color='#b8b8b8'>
               <p>{restaurante.deliveryTime} min</p>
@@ -75,7 +77,7 @@ const PaginaBuscarRestaurante = () => {
     })
 
   return (
-    <div>
+    <div >
          <Header titulo="FutureEats" />
       <br />
       <Input
@@ -85,7 +87,7 @@ const PaginaBuscarRestaurante = () => {
           setBuscaRestaurante(event.target.value)
         }} />
       <br/><br/>
-      {filtrandoRestaurantes}
+      {filtrandoRestaurantes  }
     </div>
   )
 }

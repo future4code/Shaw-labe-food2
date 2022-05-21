@@ -1,34 +1,34 @@
-export const  irParaHome = (navigate) => {
-  navigate("/")
-}
+export const irParaHome = (navigate) => {
+  navigate("/feed");
+};
 
-export const  irParaLogin = (navigate) => {
-  navigate("/login")
-}
+export const irParaLogin = (navigate) => {
+  navigate("/login");
+};
 
 export const irParaCadastro = (navigate) => {
-  navigate("/cadastro")
-}
+  navigate("/cadastro");
+};
 
 export const irParaDetalhesRestaurante = (navigate, id) => {
-  navigate(`restaurante/${id}`)
-}
+  navigate(`/restaurante/${id}`);
+};
 
 export const irParaBusca = (navigate) => {
-  navigate("/busca")
-}
+  navigate("/busca");
+};
 
 export const irParaEditarCadastro = (navigate) => {
-  navigate("/editarcadastro")
-}
+  navigate("/editarcadastro");
+};
 
 export const irParaEditarEndereco = (navigate) => {
-  navigate("/editarendereco")
-}
+  navigate("/editarendereco");
+};
 
 export const irParaEditarPerfil = (navigate) => {
-  navigate("/editarperfil")
-}
+  navigate("/editarperfil");
+};
 export const irPedido = (navigate) => {
   navigate("/pedido")
 }
@@ -38,5 +38,7 @@ export const voltar =(navigate)=>{
 }
 
 
-
+export const irPerfil = (navigate) => {
+  navigate("/perfil");
+};
 

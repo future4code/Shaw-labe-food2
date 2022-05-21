@@ -13,9 +13,10 @@ import shoppingCart from "../../imagens/shopping-cart@2x.png";
 import avatar from "../../imagens/avatar@2x.png";
 import { useNavigate } from "react-router-dom";
 import {
-  irParaEditarPerfil,
+ 
   irParaHome,
   irPedido,
+  irPerfil,
 } from "../../Router/Coordinator";
 
 const BarraNavegacao = () => {
@@ -47,12 +48,13 @@ const BarraNavegacao = () => {
           onClick={() => irPedido(navigate)}
           width="27px"
           height="27px"
+         
         />
       </Flex>
       <Flex justify={"center"}>
         <Image
           src={avatar}
-          onClick={() => irParaEditarPerfil(navigate)}
+          onClick={() => irPerfil(navigate)}
           width="27px"
           height="27px"
         />
