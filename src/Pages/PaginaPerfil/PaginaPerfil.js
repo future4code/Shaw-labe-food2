@@ -1,5 +1,5 @@
 import axios from "axios";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useContext, useState } from "react";
 import { BASE_URL } from "../../Contants/Contants";
 import {
   irParaEditarPerfil,
@@ -34,7 +34,6 @@ const PaginaPerfil = () => {
     buscarInformacoes();
     buscarHistoricoDePedidos();
   }, []);
-
   const buscarInformacoes = () => {
     const url = `${BASE_URL}/profile`;
     const { token } = localStorage;
@@ -51,7 +50,6 @@ const PaginaPerfil = () => {
         console.log(error);
       });
   };
-
   const buscarHistoricoDePedidos = () => {
     const url = `${BASE_URL}/orders/history`;
     const { token } = localStorage;

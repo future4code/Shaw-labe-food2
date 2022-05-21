@@ -9,7 +9,7 @@ const CardProduto = (props) => {
   const { carrinho } = states
   const { setCarrinho } = setters
   const [selectedProduct, setSelectedProduct] = useState({});
-  const [valor, setValor] = useState("1")
+  const [valor, setValor] = useState(1)
 
   const { isOpen, onOpen, onClose } = useDisclosure()
 
