@@ -31,9 +31,6 @@ const PaginaDetalhesRestaurante = () => {
 
   const categoriasSemRepetir = [...new Set(categorias)]
 
-  // console.log(categoriasSemRepetir)
-
-
 
   const onClickAdicionarParaCarrinho = (produto) => {
     const novoCarrinho = [...carrinho]
@@ -74,7 +71,6 @@ const PaginaDetalhesRestaurante = () => {
       .map((item) => { idProdutos.push(item.id) })
   }
   pegaId()
-  // console.log(idProdutos)
 
 
   const onChangevalor = (event) => {

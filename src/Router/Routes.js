@@ -9,13 +9,11 @@ import PaginaLogin from "../Pages/PaginaDeLogin/PaginaDeLogin";
 import PaginaPedido from "../Pages/PaginaPedido/PaginaPedido";
 import PaginaDetalhesRestaurante from "../Pages/PaginaDetalhesRestaurante/PaginaDetalhesRestaurante";
 import PaginaPerfil from "../Pages/PaginaPerfil/PaginaPerfil";
-import GlobalState from "../Global/GlobalState";
-import PaginaInicial from "../Pages/PaginaInicial";
+import PaginaInicial from "../Pages/PaginaInicial"
 
 
 export const Router = () => {
   return (
-    <GlobalState>
       <BrowserRouter>
         <Routes>
           <Route index element={<PaginaInicial />} />
@@ -32,6 +30,7 @@ export const Router = () => {
 
         </Routes>
       </BrowserRouter>
-    </GlobalState>
-  );
-};
+  )
+
+
+}
