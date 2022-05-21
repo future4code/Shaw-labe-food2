@@ -9,7 +9,7 @@ const CardProduto = (props) => {
   const { carrinho } = states
   const { setCarrinho } = setters
 
-  const [valor, setValor] = useState("")
+  const [valor, setValor] = useState(1)
 
   const { isOpen, onOpen, onClose } = useDisclosure()
 
@@ -25,6 +25,7 @@ const CardProduto = (props) => {
     }
     if(temNoCarrinho === false){
       novoCarrinho.push({...produto, quantity: valor})
+      // console.log(novoCarrinho)
     }
     setCarrinho(novoCarrinho)
     onClose()
@@ -32,7 +33,7 @@ const CardProduto = (props) => {
 
   const onChangeValor = (event) => {
     setValor(parseInt(event.target.value))
-    
+    console.log(parseInt(event.target.value))
   }
 
   return (
@@ -72,7 +73,7 @@ const CardProduto = (props) => {
                   left='1px'
                   bottom='1px'
                 >
-                  <span></span>
+                  <span>1</span>
                 </Flex>
               </Flex>
 
@@ -112,7 +113,6 @@ const CardProduto = (props) => {
                     <ModalCloseButton />
                     <ModalBody>
                       <Select value={valor} onChange={onChangeValor}>
-                        <option value='0'>0</option>
                         <option value='1'>1</option>
                         <option value='2'>2</option>
                         <option value='3'>3</option>
