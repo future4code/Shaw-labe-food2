@@ -34,7 +34,7 @@ const Header = (props) => {
         />
       </GridItem>
       <GridItem colSpan={2}>
-        <Heading mt={"7px"} fontSize={"1.3em"}>
+        <Heading mt={"3px"} fontSize={"1.3em"}>
           {props.titulo}
         </Heading>
       </GridItem>

@@ -21,8 +21,15 @@ const Home = () => {
 
   return (
     <>
-      <VStack w="full" spacing={3} p={5} h="80vh">
-        <Header titulo="FutureEats" />
+      <Header titulo="FutureEats" />
+      <Flex
+        direction='column'
+        align='center'
+        width='100vw'
+        padding='16px'
+        marginBottom='50px'
+        fontFamily={"'Roboto', sans-serif"}
+      >
         
         <Input 
          backgroundColor={"white"}
@@ -37,10 +44,6 @@ const Home = () => {
           <FiltroCategoria setCategoria={setCategoria} />
         </HStack>
 
-        {/* <StyledBox> */}
-          <CardRestaurante categoria={categoria} />
-        {/* </StyledBox> */}
-
         <Flex
           direction='column'
           align='center'
@@ -48,10 +51,9 @@ const Home = () => {
           maxW='328px'
           gap='8px'
         >
-        </Flex>
-
-      
-      </VStack>
+          <CardRestaurante categoria={categoria} />
+        </Flex>      
+      </Flex>
       <BarraNavegacao />
     </>
   )
