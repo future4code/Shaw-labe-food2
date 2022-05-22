@@ -51,9 +51,9 @@ const PaginaDeLogin = () => {
         direction={"column"}
         align={"center"}
         justify={"center"}
-        padding={"1em"}
-        h={"18vh"}
-      />
+        padding={"16px"}
+        h={"70vh"}
+      >
       <Image mb={"50px"} src={imagens} margin={"auto"}
       /><br />
 
@@ -89,8 +89,8 @@ const PaginaDeLogin = () => {
         <Button
           w="full"
           mt={4}
-          fontFamily={"Roboto-Regular"}
-          bg="#5cb646"
+          fontFamily={"'Roboto', sans-serif"}
+          bg={"#5cb646"}
           type={"submit"}
         >
           Entrar
@@ -99,11 +99,11 @@ const PaginaDeLogin = () => {
         <Button
           w="full"
           mt={2}
-          fontFamily={"Roboto-Regular"}
+          fontFamily={"'Roboto', sans-serif"}
           bg="#5cb646" onClick={() => irParaCadastro(navigate)}>Cadastre-se</Button>
 
-
       </form>
+      </Flex>
     </div>
   );
 }

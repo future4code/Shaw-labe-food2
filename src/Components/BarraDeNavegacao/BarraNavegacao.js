@@ -48,7 +48,6 @@ const BarraNavegacao = () => {
           onClick={() => irPedido(navigate)}
           width="27px"
           height="27px"
-         
         />
       </Flex>
       <Flex justify={"center"}>

@@ -11,7 +11,13 @@ const CardRestaurante = (props) => {
 
   return (
     <>
-      <VStack spacing={3}>
+      <VStack
+        direction='column'
+        align='flex-start'
+        width='100%'
+        maxW='328px'
+        gap='8px'
+      >
         {states.restaurantes
           .filter((restaurante) => {
             return (
@@ -33,11 +39,14 @@ const CardRestaurante = (props) => {
                   irParaDetalhesRestaurante(navigate, restaurante.id)
                 }
               >
-                <Image
-                  src={restaurante.logoUrl}
-                  objectFit="contain"
-                  maxW="100%"
-                  height="120px"
+                <Box
+                  width='100%'
+                  maxW='328px'
+                  height='120px'
+                  borderRadius='8px 8px 0 0'
+                  backgroundSize={'cover'}
+                  backgroundPosition='center'
+                  backgroundImage={restaurante.logoUrl}
                 />
                 <Box padding="16px">
                   <Box fontWeight="semibold" as="h3" color="#5CB646">

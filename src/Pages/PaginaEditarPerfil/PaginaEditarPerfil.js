@@ -53,9 +53,9 @@ const PaginaEditarPerfil = () => {
     align={"center"}
     justify={"center"}
     padding={"0 0 36px"}
-    h={"100vh"}>
-    
-     
+    h={"100vh"}
+    fontFamily={"'Roboto', sans-serif"}
+    >  
       
       <form onSubmit={onClickEditarPerfil}>
         <Flex mb={"90%"} direction={"column"}>
@@ -100,7 +100,7 @@ const PaginaEditarPerfil = () => {
             padding={"0 16px 8px"}
           />
           
-          <Button mt="20px" fontFamily={"Roboto-Regular"}  bg="#5cb646" type={"submit"}>Salvar</Button>
+          <Button mt="20px" bg="#5cb646" type={"submit"}>Salvar</Button>
           
         </Flex>
       </form>

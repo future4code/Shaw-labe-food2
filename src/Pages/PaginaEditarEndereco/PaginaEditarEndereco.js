@@ -50,6 +50,7 @@ const PaginaEditarEndereco = () => {
       justify={"center"}
       padding={"0 0 36px"}
       h={"100vh"}
+      fontFamily={"'Roboto', sans-serif"}
     >
       <Box
         as="h1"
@@ -145,7 +146,7 @@ const PaginaEditarEndereco = () => {
             mt={"5px"}
           />
 
-          <Button fontFamily={"Roboto-Regular"} bg="#5cb646" type="submit">
+          <Button bg="#5cb646" type="submit">
             Salvo
           </Button>
         </Flex>

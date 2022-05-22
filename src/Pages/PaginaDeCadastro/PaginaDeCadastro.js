@@ -54,6 +54,7 @@ const PaginaDeCadastro = () => {
         justify={"center"}
         padding={"1em"}
         h={"100vh"}
+        fontFamily={"'Roboto', sans-serif"}
       >
         <Image mb={"50px"} src={imagens} />
         <h1>Cadastrar</h1>
@@ -192,7 +193,7 @@ const PaginaDeCadastro = () => {
                 <Button
                   w="full"
                   mt={4}
-                  fontFamily={"Roboto-Regular"}
+                  fontFamily={"'Roboto', sans-serif"}
                   bg="#5cb646"
                   isLoading={props.isSubmitting}
                   type={"submit"}

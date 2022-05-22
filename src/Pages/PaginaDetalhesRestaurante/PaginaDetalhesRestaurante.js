@@ -97,6 +97,8 @@ const PaginaDetalhesRestaurante = () => {
       align='center'
       width='100vw'
       padding='16px'
+      marginBottom='50px'
+      fontFamily={"'Roboto', sans-serif"}
     >
       <Box
         width='100%'

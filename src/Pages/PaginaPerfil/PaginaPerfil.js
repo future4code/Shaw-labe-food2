@@ -25,7 +25,7 @@ const PaginaPerfil = () => {
   const navigate = useNavigate();
 
 
-  const logout =()=>{
+  const logout = () => {
     localStorage.removeItem("token")
     irParaLogin(navigate)
   }
@@ -77,26 +77,27 @@ const PaginaPerfil = () => {
 
   const listaDePedido = pedidos.map((pedido) => {
     return (
-      <Flex>
-        <Box
-          border="1px solid #b8b8b8"
-          borderRadius="8px"
-          key={pedido.totalPrice}
-        >
-          <Text>Nome do Restaurante: {pedido.restaurantName}</Text>
-          <Text>SubTotal: {pedido.totalPrice}</Text>
-          <Text>Data: {new Date(pedido.createdAt).toLocaleDateString()}</Text>
-        </Box>
-      </Flex>
+      <Box
+        border="1px solid #b8b8b8"
+        borderRadius="8px"
+        width="100%"
+        padding='16px'
+        gap='8px'
+        key={pedido.totalPrice}
+      >
+        <Text color='#5cb646'>{pedido.restaurantName}</Text>
+        <Text fontSize='12px'>Data: {new Date(pedido.createdAt).toLocaleDateString()}</Text>
+        <Text fontWeight='bold'>SubTotal: {pedido.totalPrice.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</Text>
+      </Box>
     );
   });
 
   return (
     <>
       <Header titulo="Meu Perfil" />
-      
-      <Flex fontSize="16px" direction={"column"}>
-      < Button bg="#eeeeee" onClick={logout}>Sair</Button>
+
+      <Flex fontSize="16px" direction={"column"} fontFamily={"'Roboto', sans-serif"}>
+        < Button bg="#eeeeee" onClick={logout}>Sair</Button>
         <Flex justify={"space-between"}>
 
           <Box m={"10px"} display={"flex"} flexDirection={"column"}>
@@ -109,10 +110,10 @@ const PaginaPerfil = () => {
           </Box>
         </Flex>
 
-        <Flex fontSize="16px" fontFamily={"Roboto-Regular"}  direction="column" bg="#eeeeee">
+        <Flex fontSize="16px" direction="column" bg="#eeeeee">
           <Flex justify={"space-between"}>
             <Box display={"flex"} flexDirection={"column"}>
-              <Box  m={"5px"} color="gray" as="p">
+              <Box m={"5px"} color="gray" as="p">
                 Endereço cadastrado
               </Box>
               <Text m="5px"> {perfil.address}</Text>
@@ -123,15 +124,29 @@ const PaginaPerfil = () => {
           </Flex>
         </Flex>
 
-        <div>
-          <Box fontSize={"16px"} m="10px"as ="p">Historico de compras:
+        <Flex
+          direction='column'
+          width='100vw'
+          padding='16px'
+          marginBottom='50px'
+        >
+          <Box fontSize={"16px"} marginBottom='8px' as="p">
+            Histórico de compras:
           </Box>
-          <Divider  borderBottomColor={"gray"} orientation='horizontal' />
+          <Divider borderBottomColor={"gray"} orientation='horizontal' />
+          <Flex
+            direction='column'
+            align='center'
+            width='100%'
+            gap='8px'
+            marginTop='9px'
+          >
           {listaDePedido}
-        </div>
-       
+          </Flex>
+        </Flex>
+
       </Flex>
-      <BarraNavegacao/>
+      <BarraNavegacao />
     </>
   );
 }
