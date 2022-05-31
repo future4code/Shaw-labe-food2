@@ -1,68 +1,43 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+### 🛠️ Tecnologias/ferramentas utilizadas
 
-## Available Scripts
+- React
+- JavaScript
+- HTML 5
+- Chakra UI
 
-In the project directory, you can run:
+### 💻 Projeto
 
-### `npm start`
+O LabeFoods (FutureEats) é um projeto criado por estudantes da Labenu, e segue o modelo de website em que é possível escolher refeições entre diversos tipos de restaurantes
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+### ✨ Deploy da aplicação
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+Você pode visualizar o projeto pelo seguinte link: https://futureeatsa-shaw.surge.sh
 
-### `npm test`
+### 🚀 Como executar
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Clonar o repositório:
 
-### `npm run build`
+$ git clone https://github.com/future4code/Shaw-labe-ninja9
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+Acessar o repertório:
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+$ cd Shaw-labe-food2
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+### ✒️ Autores
 
-### `npm run eject`
+- Matheus Jesuino https://github.com/MatheusJesuino
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+- Regiscleia Dias https://github.com/regiscleia
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+- Rodrigo Goularte https://github.com/rodrigoularte
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+- Rodrigo Pernambuco https://github.com/RodrigoPernambuco
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+### 🖼️ Algumas telas (Layout mobile)
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
-
-### Analyzing the Bundle Size
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
-
-### Making a Progressive Web App
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `npm run build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+![Captura da Web_22-5-2022_15325_futureeatsa-shaw surge sh](https://user-images.githubusercontent.com/88721328/169709690-9a665ac9-094a-4b24-a913-182373cf5d5a.jpeg)
+![Captura da Web_22-5-2022_15354_futureeatsa-shaw surge sh](https://user-images.githubusercontent.com/88721328/169709701-64113647-7bd0-4bb2-86d6-ec5af2c970c3.jpeg)
+![Captura de tela 2022-05-22 150514](https://user-images.githubusercontent.com/88721328/169709708-5a57ae76-32bf-46a7-8250-e4a8d0554352.png)
+![Captura de tela 2022-05-22 151059](https://user-images.githubusercontent.com/88721328/169709716-f34735b1-402a-4b73-bb1f-c00f9d664c37.png)
+![Captura de tela 2022-05-22 151134](https://user-images.githubusercontent.com/88721328/169709717-9cb65758-d295-4d2b-be0e-e703bd4394f3.png)
+![Captura de tela 2022-05-22 151240](https://user-images.githubusercontent.com/88721328/169709718-40061f5b-dd9c-4620-9feb-10514f235a65.png)
